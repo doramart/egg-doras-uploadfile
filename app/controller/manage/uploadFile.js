@@ -1,4 +1,3 @@
-const xss = require("xss");
 const _ = require('lodash');
 
 const uploadFileRule = (ctx) => {
