@@ -336,7 +336,7 @@ let UploadFileController = {
      *       "path": "http://creatorchain.oss-cn-hongkong.aliyuncs.com/upload/images/img1544167579253.png" // 文件链接
      *    } 
      *}
-     * @apiSampleRequest http://localhost:8080/api/upload/files
+     * @apiSampleRequest http://localhost:10003/api/upload/files
      * @apiVersion 1.0.0
      */
     async create(ctx, app) {

@@ -1,4 +1,3 @@
-const xss = require("xss");
 const _ = require('lodash');
 
 const uploadFileRule = (ctx) => {
@@ -58,16 +57,16 @@ let UploadFileController = {
 
             let fields = ctx.request.body || {};
             const formObj = {
-                upload_type: fields.type,
+                upload_type: fields.upload_type,
             }
 
             ctx.validate(uploadFileRule(ctx), formObj);
 
-            if (fields.type == 'local') {
+            if (fields.upload_type == 'local') {
                 Object.assign(formObj, {
                     uploadPath: fields.uploadPath
                 })
-            } else if (fields.type == "qn") {
+            } else if (fields.upload_type == "qn") {
                 Object.assign(formObj, {
                     qn_bucket: fields.qn_bucket,
                     qn_accessKey: fields.qn_accessKey,
@@ -75,7 +74,7 @@ let UploadFileController = {
                     qn_zone: fields.qn_zone,
                     qn_endPoint: fields.qn_endPoint,
                 });
-            } else if (fields.type == "oss") {
+            } else if (fields.upload_type == "oss") {
                 Object.assign(formObj, {
                     oss_bucket: fields.oss_bucket,
                     oss_accessKey: fields.oss_accessKey,
