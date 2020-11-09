@@ -3,7 +3,7 @@
  * @Date: 2019-11-20 10:07:42 
  * @Description local 本地，qn 七牛，oss 阿里云oss
  * @Last Modified by: doramart
- * @Last Modified time: 2020-10-01 20:57:08
+ * @Last Modified time: 2020-11-09 11:45:24
  */
 
 const qiniu = require("qiniu");
@@ -336,7 +336,7 @@ let UploadFileController = {
      *       "path": "http://creatorchain.oss-cn-hongkong.aliyuncs.com/upload/images/img1544167579253.png" // 文件链接
      *    } 
      *}
-     * @apiSampleRequest http://localhost:8080/api/upload/files
+     * @apiSampleRequest http://localhost:10003/api/upload/files
      * @apiVersion 1.0.0
      */
     async create(ctx, app) {
@@ -359,7 +359,7 @@ let UploadFileController = {
                 const publicDir = options.upload_path || (process.cwd() + '/app/public');
                 uploadPath = `${publicDir}/${uploadForder}`
                 if (!fs.existsSync(uploadPath)) {
-                    fs.mkdirSync(uploadPath);
+                    upload.mkdirsSync(uploadPath);
                 }
                 const target = path.join(uploadPath, `${uploadFileName}`)
                 const writeStream = fs.createWriteStream(target)
